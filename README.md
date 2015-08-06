@@ -1,7 +1,10 @@
-master: [![Build Status](https://travis-ci.org/hearsayit/HearsayRequireJSBundle.png?branch=master)](https://travis-ci.org/hearsayit/HearsayRequireJSBundle)
-1.0: [![Build Status](https://travis-ci.org/hearsayit/HearsayRequireJSBundle.png?branch=1.0)](https://travis-ci.org/hearsayit/HearsayRequireJSBundle)
+[![Build Status](https://travis-ci.org/ddproxy/HearsayRequireJSBundle.png?branch=master)](https://travis-ci.org/ddproxy/HearsayRequireJSBundle)
+
+[![Build Status](https://travis-ci.org/ddproxy/HearsayRequireJSBundle.png?branch=1.0)](https://travis-ci.org/ddproxy/HearsayRequireJSBundle)
 
 # HearsayRequireJSBundle #
+
+Forked from [hearsayit's HearsayRequireJSBundle](https://github.com/hearsayit/HearsayRequireJSBundle)
 
 ## Overview ##
 
