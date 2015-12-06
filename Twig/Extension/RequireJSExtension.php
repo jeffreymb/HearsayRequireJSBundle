@@ -20,7 +20,7 @@ use Hearsay\RequireJSBundle\Templating\Helper\RequireJSHelper;
  * Twig extension providing RequireJS functionality.
  * @author Kevin Montag <kevin@hearsay.it>
  */
-class RequireJSExtension extends \Twig_Extension
+class RequireJSExtension extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
     /**
      * @var ConfigurationBuilder
