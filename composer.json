@@ -22,6 +22,9 @@
         "kriswallsmith/assetic": ">= 1.0",
         "symfony/framework-bundle": ">=2.0.9"
     },
+    "conflict": {
+        "twig/twig": "<1.23"
+    },
     "require-dev": {
         "twig/extensions": "v1.0.0",
         "squizlabs/php_codesniffer": "1.*",
