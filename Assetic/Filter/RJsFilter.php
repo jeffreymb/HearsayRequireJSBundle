@@ -84,6 +84,20 @@ class RJsFilter extends BaseNodeFilter
     protected $shim = array();
 
     /**
+     * An array of dependencies
+     *
+     * @var array
+     */
+    protected $deps = array();
+
+    /**
+     * An array of priorities
+     *
+     * @var array
+     */
+    protected $priority = array();
+
+    /**
      * Modules to load
      *
      * @var array
@@ -251,6 +265,26 @@ class RJsFilter extends BaseNodeFilter
     }
 
     /**
+     * Sets the deps array
+     *
+     * @param array $deps An array of dependencies
+     */
+    public function setDeps(array $deps)
+    {
+        $this->deps = $deps;
+    }
+
+    /**
+     * Sets the priority array
+     *
+     * @param array $priority An array of priorities
+     */
+    public function setPriority(array $priority)
+    {
+        $this->priority = $priority;
+    }
+
+    /**
      * Sets the almond.js relative path
      *
      * @param string $almondPath The almond.js relative path
@@ -302,6 +336,8 @@ class RJsFilter extends BaseNodeFilter
         unset($shim);
 
         $content->shim = (object) $this->shim;
+        $content->deps = (object) $this->deps;
+        $content->priority = (object) $this->priority;
 
         $excludedDeps = $this->getExcludedDependencies($moduleName);
         // merge optimizer excludes with global ones

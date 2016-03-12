@@ -39,6 +39,8 @@ services:
       - @hearsay_require_js.namespace_mapping
       - %hearsay_require_js.base_url%
       - %hearsay_require_js.shim%
+      - %hearsay_require_js.deps%
+      - %hearsay_require_js.priority%
     public: false
 
   hearsay_require_js.templating_helper:
