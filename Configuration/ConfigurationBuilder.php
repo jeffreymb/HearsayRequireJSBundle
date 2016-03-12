@@ -118,7 +118,7 @@ class ConfigurationBuilder
         }
 
         if ($this->shim) {
-            $config['shim'] = $this->shim;
+            $config['shim'] = $this->optimizeShim($this->shim);
         }
 
         if ($this->container->hasParameter('kernel.debug')
@@ -128,6 +128,31 @@ class ConfigurationBuilder
         }
 
         return array_merge($config, $this->options);
+    }
+
+    /**
+     * Optimizes shim array where possible
+     *
+     * @return array
+     */
+    protected function optimizeShim($shim)
+    {
+        $optimized = array();
+        foreach ($shim AS $key => $value)
+        {
+            if (array_key_exists('deps', $value) && count($value['deps']) == 0) {
+                unset($value['deps']);
+            }
+            if (count($value) > 0) {
+                if (array_key_exists('deps', $value) && count($value) == 1) {
+                    $optimized[$key] = $value['deps'];
+                } else {
+                    $optimized[$key] = $value;
+                }
+            }
+        }
+
+        return $optimized;
     }
 
     /**
