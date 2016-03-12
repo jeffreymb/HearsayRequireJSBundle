@@ -76,6 +76,8 @@ class HearsayRequireJSExtension extends Extension
         }
 
         $container->setParameter('hearsay_require_js.shim', $config['shim']);
+        $container->setParameter('hearsay_require_js.deps', $config['deps']);
+        $container->setParameter('hearsay_require_js.priority', $config['priority']);
 
         $configurationBuilder = $container
             ->getDefinition('hearsay_require_js.configuration_builder');
@@ -108,6 +110,8 @@ class HearsayRequireJSExtension extends Extension
             }
 
             $filter->addMethodCall('setShim', array($config['shim']));
+            $filter->addMethodCall('setDeps', array($config['deps']));
+            $filter->addMethodCall('setPriority', array($config['priority']));
             $filter->addMethodCall('setTimeout', array($config['optimizer']['timeout']));
 
             foreach ($config['optimizer']['exclude'] as $exclude) {

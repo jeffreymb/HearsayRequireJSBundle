@@ -62,6 +62,20 @@ class ConfigurationBuilder
     protected $shim  = array();
 
     /**
+     * An array of dependencies
+     *
+     * @var array
+     */
+    protected $deps  = array();
+
+    /**
+     * An array of priorities
+     *
+     * @var array
+     */
+    protected $priority = array();
+
+    /**
      * Flag to control if almond is used or not.
      *
      * @var boolean
@@ -82,12 +96,16 @@ class ConfigurationBuilder
         ContainerInterface $container,
         NamespaceMappingInterface $mapping,
         $baseUrl = '',
-        $shim = array()
+        $shim = array(),
+        $deps = array(),
+        $priority = array()
     ) {
         $this->container = $container;
         $this->mapping   = $mapping;
         $this->baseUrl   = ltrim($baseUrl, '/');
         $this->shim      = $shim;
+        $this->deps      = $deps;
+        $this->priority  = $priority;
     }
 
     /**
@@ -119,6 +137,14 @@ class ConfigurationBuilder
 
         if ($this->shim) {
             $config['shim'] = $this->optimizeShim($this->shim);
+        }
+
+        if ($this->deps) {
+            $config['deps'] = $this->deps;
+        }
+
+        if ($this->priority) {
+            $config['priority'] = $this->priority;
         }
 
         if ($this->container->hasParameter('kernel.debug')
