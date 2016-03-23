@@ -186,7 +186,7 @@ class ConfigurationBuilder
         $baseUrl = '';
 
         if ($this->container->getParameter('assetic.use_controller')) {
-            $baseUrl = $this->container->get('request')->getBaseUrl();
+            $baseUrl = $this->container->get('request_stack')->getBaseUrl();
         } else {
             $baseUrl = $this->container->get('templating.helper.assets')->getUrl('');
 
