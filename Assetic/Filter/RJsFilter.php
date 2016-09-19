@@ -336,7 +336,7 @@ class RJsFilter extends BaseNodeFilter
         unset($shim);
 
         $content->shim = (object) $this->shim;
-        $content->deps = (object) $this->deps;
+        $content->deps = (array) $this->deps;
         $content->priority = (object) $this->priority;
 
         $excludedDeps = $this->getExcludedDependencies($moduleName);
