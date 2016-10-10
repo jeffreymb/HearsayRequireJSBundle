@@ -236,16 +236,14 @@ class ConfigurationBuilder
     {
         $baseUrl = '';
 
-        if ($this->container->isScopeActive('request')) {
-            if ($this->container->getParameter('assetic.use_controller')) {
-                $baseUrl = $this->container->get('request')->getBaseUrl();
-            } else {
-                $baseUrl = $this->container->get('templating.helper.assets')->getUrl('');
+        if ($this->container->getParameter('assetic.use_controller')) {
+            $baseUrl = $this->container->get('request')->getBaseUrl();
+        } else {
+            $baseUrl = $this->container->get('templating.helper.assets')->getUrl('');
 
-                // Remove ?version from the end of the base URL
-                if (($pos = strpos($baseUrl, '?')) !== false) {
-                    $baseUrl = substr($baseUrl, 0, $pos);
-                }
+            // Remove ?version from the end of the base URL
+            if (($pos = strpos($baseUrl, '?')) !== false) {
+                $baseUrl = substr($baseUrl, 0, $pos);
             }
         }
 
