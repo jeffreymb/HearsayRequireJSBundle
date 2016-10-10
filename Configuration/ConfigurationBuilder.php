@@ -240,7 +240,7 @@ class ConfigurationBuilder
         if (($pos = strpos($baseUrl, '?')) !== false) {
             $baseUrl = substr($baseUrl, 0, $pos);
         }
-        
+
         // Remove trailing slash, if there is one
         return rtrim($baseUrl, '/');
     }
