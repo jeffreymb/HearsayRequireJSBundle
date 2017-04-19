@@ -235,7 +235,11 @@ class ConfigurationBuilder
     protected function getBaseUrl()
     {
 
-        $baseUrl = $this->container->get('templating.helper.assets')->getUrl('');
+        if ($this->container->has('templating.helper.assets')) {
+            $baseUrl = $this->container->get('templating.helper.assets')->getUrl('');
+        } else {
+            $baseUrl = $this->container->get('assets.packages')->getUrl('');
+        }
 
         // Remove ?version from the end of the base URL
         if (($pos = strpos($baseUrl, '?')) !== false) {
