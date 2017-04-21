@@ -6,7 +6,7 @@ Forked from [hearsayit's HearsayRequireJSBundle](https://github.com/hearsayit/He
 
 ## Overview ##
 
-This bundle provides integration of the [RequireJS][1] library into Symfony2.
+This bundle provides integration of the [RequireJS][1] library into Symfony.
 
 ## Installation ##
 
