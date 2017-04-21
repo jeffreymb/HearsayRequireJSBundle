@@ -119,12 +119,13 @@ class RequireJSHelper extends Helper
     public function src()
     {
         try {
-            if ($this->engine->exists($this->requireJsSrc)
+            // If the src is a URL (starts with '//' don't try to render it. This resolves a Twig deprecation error.
+            if (substr($this->requireJsSrc, 0, 2) != '//'
+                && $this->engine->exists($this->requireJsSrc)
                 && $this->engine->supports($this->requireJsSrc)) {
                 return $this->engine->render($this->requireJsSrc);
             }
-        }
-        catch (\InvalidArgumentException $err) {
+        } catch (\InvalidArgumentException $err) {
         }
 
         return $this->requireJsSrc;
